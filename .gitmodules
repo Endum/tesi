@@ -1,3 +1,3 @@
 [submodule "2d-robot-evolution"]
 	path = 2d-robot-evolution
-	url = git@github.com:ericmedvet/2d-robot-evolution.git
+	url = https://github.com/ericmedvet/2d-robot-evolution.git
