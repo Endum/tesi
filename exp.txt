@@ -18,7 +18,10 @@ ea.experiment(
               );
               shape = s.a.vsr.s.biped(w = 4; h = 3)
             );
-            function = ds.num.mlp();
+            function = ds.num.outStepped(
+              stepT = 0.2;
+              inner = ds.num.mlp()
+            );
             signals = 2
           )
         );
@@ -46,13 +49,15 @@ ea.experiment(
     ea.l.bestCsv(
       filePath = "best.csv";
       functions = [
-        ea.nf.bestFitness(f = ea.nf.f(outerF = s.task.l.xVelocity(); s = "%5.2f"));
+        ea.nf.bestFitness(f = ea.nf.f(outerF = s.task.l.xDistance(); s = "%5.2f"));
         ea.nf.base64(f = ea.nf.genotype(individual = ea.nf.best()))
       ];
       runKeys = ["randomGenerator.seed"; "solver.mapper.target.body.shape"; "solver.mapper.target.function"]
     );
     evorobots.listener.videoSaver(videos = [
-      er.video(task = s.task.locomotion(terrain = sim.terrain.uphill(); duration = 30))
+      er.video(task = s.task.locomotion(terrain = sim.terrain.downhill(); duration = 30); filePathTemplate = "best_downhill.mp4");
+      er.video(task = s.task.locomotion(terrain = sim.terrain.flat(); duration = 30); filePathTemplate = "best_flat.mp4");
+      er.video(task = s.task.locomotion(terrain = sim.terrain.uphill(); duration = 30); filePathTemplate = "best_uphill.mp4")
     ])
   ]
 )
