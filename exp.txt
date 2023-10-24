@@ -10,7 +10,7 @@ ea.experiment(
       solver = ea.s.doubleStringGa(
         mapper = er.m.numericalParametrizedHeteroBrains(
           target = s.a.numSelfAssemblyVSR(
-            unitNumber = 1;
+            unitNumber = 2;
             function = ds.num.outStepped(
               stepT = 0.2;
               inner = ds.num.mlp()
