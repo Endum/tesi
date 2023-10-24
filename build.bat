@@ -1,0 +1,1 @@
+mvn -f 2d-robot-evolution\pom.xml clean package

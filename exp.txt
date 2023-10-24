@@ -9,23 +9,21 @@ ea.experiment(
     [ea.run(
       solver = ea.s.doubleStringGa(
         mapper = er.m.numericalParametrizedHeteroBrains(
-          target = s.a.distributedNumGridVSR(
-            body = s.a.vsr.gridBody(
-              sensorizingFunction = s.a.vsr.sf.directional(
-                headSensors = [s.s.sin(f = 0); s.s.d(a = -15; r = 5)];
-                nSensors = [s.s.ar(); s.s.rv(a = 0); s.s.rv(a = 90)];
-                sSensors = [s.s.d(a = -90)]
-              );
-              shape = s.a.vsr.s.biped(w = 4; h = 3)
-            );
+          target = s.a.numSelfAssemblyVSR(
+            unitNumber = 1;
             function = ds.num.outStepped(
               stepT = 0.2;
               inner = ds.num.mlp()
             );
-            signals = 2
+            sensors = [
+              s.s.a();
+              s.s.ar();
+              s.s.c();
+              s.s.rv()
+            ]
           )
         );
-        nEval = 10000;
+        nEval = 100;
         nPop = 25
       );
       problem = ea.p.totalOrder(
