@@ -1,6 +1,6 @@
 [submodule "2d-robot-evolution"]
 	path = 2d-robot-evolution
-	url = https://github.com/ericmedvet/2d-robot-evolution.git
+	url = https://github.com/Endum/2d-robot-evolution.git
 [submodule "2dmrsim"]
 	path = 2dmrsim
 	url = https://github.com/Endum/2dmrsim.git
