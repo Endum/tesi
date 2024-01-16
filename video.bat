@@ -1,0 +1,1 @@
+java -Xmx10g -cp 2d-robot-evolution/io.github.ericmedvet.robotevo2d.main/target/robotevo2d.main-1.3.4-jar-with-dependencies.jar io.github.ericmedvet.robotevo2d.main.Player --playFile play.txt
